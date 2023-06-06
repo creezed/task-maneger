@@ -1,0 +1,64 @@
+<div class="flex flex-column">
+  <h1 class="text-3xl">Регистрация</h1>
+  <a
+    [routerLink]="[Routes.LOGIN]"
+    class="no-underline text-primary hover:underline hover:text-primary-600 active:text-gray-700 transition-all transition-ease-in-out transition-duration-100 mb-3"
+    >Есть аккаунт?</a
+  >
+  <form
+    [formGroup]="form"
+    class="flex flex-column gap-2 w-full"
+    (ngSubmit)="onSubmit()"
+  >
+    <fieldset class="p-fluid">
+      <input
+        pInputText
+        type="text"
+        class="p-input-filled"
+        placeholder="Логин"
+        formControlName="username"
+        autocomplete="username"
+      />
+      <span *ngIf="_username?.invalid" class="p-error fadein"
+        >Обязательное поле</span
+      >
+    </fieldset>
+    <fieldset class="p-fluid">
+      <input
+        pInputText
+        type="email"
+        class="p-input-filled"
+        placeholder="Почта"
+        formControlName="email"
+        autocomplete="email"
+      />
+      <span *ngIf="_email?.errors?.required" class="p-error fadein"
+        >Обязательное поле</span
+      >
+      <span *ngIf="_email?.errors?.email" class="p-error fadein"
+        >Неверный формат почты</span
+      >
+    </fieldset>
+    <fieldset class="p-fluid">
+      <input
+        pInputText
+        type="password"
+        class="p-input-filled"
+        placeholder="Пароль"
+        formControlName="password"
+        autocomplete="current-password"
+      />
+      <span *ngIf="_password?.errors?.required" class="p-error fadein"
+        >Обязательное поле</span
+      >
+    </fieldset>
+    <p-button
+      styleClass="w-full"
+      label="Зарегистрироваться"
+      class="w-full"
+      type="submit"
+      [disabled]="this.form.invalid"
+      [loading]="Boolean(registrationExecuting$ | async)"
+    ></p-button>
+  </form>
+</div>

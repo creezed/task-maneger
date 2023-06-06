@@ -1,0 +1,26 @@
+{
+  "name": "web-shared-consts",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/web/shared/consts/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/web/shared/consts",
+        "main": "libs/web/shared/consts/src/index.ts",
+        "tsConfig": "libs/web/shared/consts/tsconfig.lib.json",
+        "assets": ["libs/web/shared/consts/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/web/shared/consts/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

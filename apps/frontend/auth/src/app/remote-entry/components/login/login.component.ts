@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Routes } from '@practica/web/shared/consts';
 import { Select, Store } from '@ngxs/store';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { LoginAction } from '@practica/web/auth/data-access';
 import { Observable, takeUntil } from 'rxjs';
 import {
@@ -43,11 +48,11 @@ export class LoginComponent extends ComponentUnsub implements OnInit {
       .subscribe((value) => console.log(value));
   }
 
-  get _email() {
+  get _email(): AbstractControl<any, any> | null {
     return this.form.get('email');
   }
 
-  get _password() {
+  get _password(): AbstractControl<any, any> | null {
     return this.form.get('password');
   }
 

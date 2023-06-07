@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Actions, Select, Store } from '@ngxs/store';
 import { RegistrationAction } from '@practica/web/auth/data-access';
 import {
@@ -34,7 +39,7 @@ export class RegistrationComponent extends ComponentUnsub implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.authResponseViewModel
       .showResult({
         successText: 'Успешная регистрация',
@@ -45,15 +50,15 @@ export class RegistrationComponent extends ComponentUnsub implements OnInit {
       .subscribe((value) => console.log(value));
   }
 
-  get _email() {
+  get _email(): AbstractControl<any, any> | null {
     return this.form.get('email');
   }
 
-  get _username() {
+  get _username(): AbstractControl<any, any> | null {
     return this.form.get('username');
   }
 
-  get _password() {
+  get _password(): AbstractControl<any, any> | null {
     return this.form.get('password');
   }
 

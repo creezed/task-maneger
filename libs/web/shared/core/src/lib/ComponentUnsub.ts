@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 export class ComponentUnsub implements OnDestroy {
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.complete();
   }

@@ -12,9 +12,8 @@ import {
   actionsExecuting,
 } from '@ngxs-labs/actions-executing';
 import { Observable, takeUntil } from 'rxjs';
-import { Routes } from '@practica/web/shared/consts';
-import { ComponentUnsub } from '@practica/web/shared/core';
 import { AuthResponseViewModel } from '../../../view-model/auth-response.viewmodel';
+import { ComponentUnsub, Routes } from '@practica/web/common';
 
 @Component({
   selector: 'practica-registration',

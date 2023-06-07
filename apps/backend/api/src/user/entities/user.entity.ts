@@ -1,4 +1,3 @@
-import { UserModel } from '@practica/shared/models';
 import {
   BeforeInsert,
   BeforeUpdate,
@@ -7,6 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Exclude } from 'class-transformer';
+import { UserModel } from '@practica/common';
 
 @Entity()
 export class User implements UserModel {

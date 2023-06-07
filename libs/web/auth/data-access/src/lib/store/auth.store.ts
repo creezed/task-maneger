@@ -6,10 +6,9 @@ import {
   RegistrationAction,
 } from '../actions/auth.actions';
 import { Action, Selector, State, StateContext, StateToken } from '@ngxs/store';
-import { UserModel } from '@practica/shared/models';
 import { Observable, tap } from 'rxjs';
-import { AuthResponse } from '@practica/shared/types';
 import { AuthApiService } from '../services/auth-api.service';
+import { AuthResponse, UserModel } from '@practica/common';
 
 interface AuthStateModel {
   user: Omit<UserModel, 'password'> | null;

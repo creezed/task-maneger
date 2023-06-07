@@ -5,7 +5,7 @@ import {
   MaxLength,
   MinLength,
 } from 'class-validator';
-import { LoginParams } from '@practica/shared/types';
+import { LoginParams } from '@practica/common';
 
 export class LoginUserDto implements LoginParams {
   @IsNotEmpty({ message: 'Почта не может быть пустой' })

@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { JwtPayload } from '@practica/api/types';
-import { UserModel } from '@practica/shared/models';
 import { ConfigService } from '@nestjs/config';
+import { UserModel } from '@practica/common';
 
 @Injectable()
 export class TokenService {

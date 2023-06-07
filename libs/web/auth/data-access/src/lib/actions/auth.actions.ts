@@ -1,4 +1,4 @@
-import { LoginParams, RegistrationParams } from '@practica/shared/types';
+import { LoginParams, RegistrationParams } from '@practica/common';
 
 export class RegistrationAction {
   static readonly type = '[Auth] Register';

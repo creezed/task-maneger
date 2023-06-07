@@ -9,8 +9,8 @@ import { UserService } from '../../user/services/user.service';
 import { compareHashAsync } from '../utils/compareHash';
 import { hashPasswordAsync } from '../utils/hashPassword';
 import { RegistrationUserDto } from '../dto/registration-user.dto';
-import { AuthResponse } from '@practica/shared/types';
 import { TokenService } from '../../token/services/token.service';
+import { AuthResponse } from '@practica/common';
 
 @Injectable()
 export class AuthService {

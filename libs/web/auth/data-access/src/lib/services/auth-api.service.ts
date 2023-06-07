@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import {
+  apiUrl,
   AuthResponse,
   LoginParams,
   RegistrationParams,
-} from '@practica/shared/types';
-import { Observable } from 'rxjs';
-import { apiUrl } from '@practica/shared/consts';
+} from '@practica/common';
 
 @Injectable({ providedIn: 'root' })
 export class AuthApiService {

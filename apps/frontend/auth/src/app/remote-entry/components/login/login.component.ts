@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Routes } from '@practica/web/shared/consts';
 import { Select, Store } from '@ngxs/store';
 import {
   AbstractControl,
@@ -13,8 +12,8 @@ import {
   ActionsExecuted,
   actionsExecuting,
 } from '@ngxs-labs/actions-executing';
-import { ComponentUnsub } from '@practica/web/shared/core';
 import { AuthResponseViewModel } from '../../../view-model/auth-response.viewmodel';
+import { ComponentUnsub, Routes } from '@practica/web/common';
 
 @Component({
   selector: 'practica-login',

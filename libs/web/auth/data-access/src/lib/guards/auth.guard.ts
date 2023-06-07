@@ -7,7 +7,7 @@ import {
 import { inject } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { catchError, map, of } from 'rxjs';
-import { Routes } from '@practica/web/shared/consts';
+import { Routes } from '@practica/web/common';
 
 export const AuthGuard: CanActivateFn = (
   route: ActivatedRouteSnapshot,

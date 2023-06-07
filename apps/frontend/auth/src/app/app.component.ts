@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Routes } from '@practica/web/shared/consts';
 import { AuthService } from '@practica/web/auth/data-access';
+import { Routes } from '@practica/web/common';
 
 @Component({
   selector: 'practica-root',

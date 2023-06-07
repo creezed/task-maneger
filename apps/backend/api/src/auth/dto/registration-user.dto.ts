@@ -1,5 +1,5 @@
 import { IsEmail, IsNotEmpty, MaxLength, MinLength } from 'class-validator';
-import { RegistrationParams } from '@practica/shared/types';
+import { RegistrationParams } from '@practica/common';
 
 export class RegistrationUserDto implements RegistrationParams {
   @IsNotEmpty({ message: 'Почта не может быть пустой' })

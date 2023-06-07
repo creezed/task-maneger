@@ -17,23 +17,11 @@
     "paths": {
       "@practica/api/auth": ["libs/api/auth/src/index.ts"],
       "@practica/api/types": ["libs/api/types/src/index.ts"],
-      "@practica/shared/consts": ["libs/shared/consts/src/index.ts"],
-      "@practica/shared/models": ["libs/shared/models/src/index.ts"],
-      "@practica/shared/types": ["libs/shared/types/src/index.ts"],
+      "@practica/common": ["libs/common/src/index.ts"],
       "@practica/web/auth/data-access": [
         "libs/web/auth/data-access/src/index.ts"
       ],
-      "@practica/web/shared/consts": ["libs/web/shared/consts/src/index.ts"],
-      "@practica/web/shared/consts/store-tokens": [
-        "libs/web/shared/consts/store-tokens/src/index.ts"
-      ],
-      "@practica/web/shared/core": ["libs/web/shared/core/src/index.ts"],
-      "@practica/web/shared/data-access": [
-        "libs/web/shared/data-access/src/index.ts"
-      ],
-      "@practica/web/shared/data-access/api": [
-        "libs/web/shared/data-access/api/src/index.ts"
-      ]
+      "@practica/web/common": ["libs/web/common/src/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]

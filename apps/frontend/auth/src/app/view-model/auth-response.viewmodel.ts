@@ -4,7 +4,7 @@ import { MessageService } from 'primeng/api';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { Routes } from '@practica/web/shared/consts';
+import { Routes } from '@practica/web/common';
 
 interface Options {
   successText: string;

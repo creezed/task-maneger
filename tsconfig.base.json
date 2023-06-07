@@ -1,28 +1,26 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
-    "lib": ["es2020", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@practica/api/auth": ["libs/api/auth/src/index.ts"],
-      "@practica/api/types": ["libs/api/types/src/index.ts"],
-      "@practica/common": ["libs/common/src/index.ts"],
-      "@practica/web/auth/data-access": [
-        "libs/web/auth/data-access/src/index.ts"
-      ],
-      "@practica/web/common": ["libs/web/common/src/index.ts"],
-    }
-  },
-  "exclude": ["node_modules", "tmp"]
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "esnext",
+        "lib": ["es2020", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@practica/api/auth": ["libs/api/auth/src/index.ts"],
+            "@practica/api/types": ["libs/api/types/src/index.ts"],
+            "@practica/common": ["libs/common/src/index.ts"],
+            "@practica/web/auth/data-access": ["libs/web/auth/data-access/src/index.ts"],
+            "@practica/web/common": ["libs/web/common/src/index.ts"]
+        }
+    },
+    "exclude": ["node_modules", "tmp"]
 }

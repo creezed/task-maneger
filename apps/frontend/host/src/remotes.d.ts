@@ -1,1 +1,1 @@
-declare module 'frontend-auth/Module';
+declare module 'frontend-auth/Module'

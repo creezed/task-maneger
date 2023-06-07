@@ -1,3 +1,3 @@
-import { UserModel } from '../../models/user-model';
+import { UserModel } from '../../models/user-model'
 
-export type RegistrationParams = Omit<UserModel, 'id'>;
+export type RegistrationParams = Omit<UserModel, 'id'>

@@ -19,30 +19,39 @@ export class AuthResponseViewModel {
     private readonly actions$: Actions,
     private router: Router
   ) {}
-  showResult({ successText, unknownErrorText, action }: Options) {
+  showResult({
+    successText,
+    unknownErrorText,
+    action,
+  }: Options): Observable<unknown> {
     return new Observable((subscriber) => {
-      this.actions$.pipe(ofActionCompleted(action)).subscribe((value) => {
-        if (!value.result.error) {
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Успех',
-            detail: successText,
-          });
+      const internalSubscription = this.actions$
+        .pipe(ofActionCompleted(action))
+        .subscribe((value) => {
+          if (!value.result.error) {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Успех',
+              detail: successText,
+            });
+            subscriber.next(value);
+            subscriber.complete();
+            this.router.navigateByUrl(Routes.HOME);
+            return;
+          }
+          this.getError(
+            value.result.error as HttpErrorResponse,
+            unknownErrorText
+          );
           subscriber.next(value);
           subscriber.complete();
-          this.router.navigateByUrl(Routes.HOME);
-          return;
-        }
-        this.getError(
-          value.result.error as HttpErrorResponse,
-          unknownErrorText
-        );
-        subscriber.next(value);
-        subscriber.complete();
-      });
+        });
+      return () => {
+        internalSubscription.unsubscribe();
+      };
     });
   }
-  private getError(errors: HttpErrorResponse, unknownErrorText: string) {
+  private getError(errors: HttpErrorResponse, unknownErrorText: string): void {
     if (Array.isArray(errors.error?.message)) {
       errors.error.message.map((message: string) => {
         this.messageService.add({

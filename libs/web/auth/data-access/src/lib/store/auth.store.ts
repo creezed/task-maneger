@@ -7,7 +7,7 @@ import {
 } from '../actions/auth.actions';
 import { Action, Selector, State, StateContext, StateToken } from '@ngxs/store';
 import { UserModel } from '@practica/shared/models';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { AuthResponse } from '@practica/shared/types';
 import { AuthApiService } from '../services/auth-api.service';
 
@@ -29,12 +29,12 @@ export const AUTH_STATE_TOKEN = new StateToken<AuthStateModel>('auth');
 export class AuthState {
   constructor(private readonly authApiService: AuthApiService) {}
   @Selector([AUTH_STATE_TOKEN])
-  static getToken(state: AuthStateModel) {
+  static getToken(state: AuthStateModel): string | null {
     return state.token;
   }
 
   @Selector([AUTH_STATE_TOKEN])
-  static getUser(state: AuthStateModel) {
+  static getUser(state: AuthStateModel): Omit<UserModel, 'password'> | null {
     return state.user;
   }
 
@@ -42,7 +42,7 @@ export class AuthState {
   registration(
     ctx: StateContext<AuthStateModel>,
     { payload }: RegistrationAction
-  ) {
+  ): Observable<AuthResponse> {
     return this.authApiService.registration$(payload).pipe(
       tap({
         next: (response: AuthResponse) => {
@@ -59,7 +59,10 @@ export class AuthState {
   }
 
   @Action(LoginAction)
-  login(ctx: StateContext<AuthStateModel>, { payload }: LoginAction) {
+  login(
+    ctx: StateContext<AuthStateModel>,
+    { payload }: LoginAction
+  ): Observable<AuthResponse> {
     return this.authApiService.login$(payload).pipe(
       tap({
         next: (response) => {
@@ -75,7 +78,7 @@ export class AuthState {
     );
   }
   @Action(LogoutAction)
-  logout(ctx: StateContext<AuthStateModel>) {
+  logout(ctx: StateContext<AuthStateModel>): void {
     ctx.setState({
       token: null,
       user: null,

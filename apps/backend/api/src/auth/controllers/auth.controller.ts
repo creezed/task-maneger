@@ -10,13 +10,15 @@ export class AuthController {
 
   @HttpCode(HttpStatus.CREATED)
   @Post('local/registration')
-  async registration(@Body() dto: RegistrationUserDto) {
+  async registration(
+    @Body() dto: RegistrationUserDto
+  ): Promise<Record<string, any>> {
     return instanceToPlain(this.authService.registration(dto));
   }
 
   @HttpCode(HttpStatus.OK)
   @Post('local/login')
-  async login(@Body() dto: LoginUserDto) {
+  async login(@Body() dto: LoginUserDto): Promise<Record<string, any>> {
     return instanceToPlain(this.authService.login(dto));
   }
 }

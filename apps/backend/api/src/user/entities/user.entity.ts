@@ -25,7 +25,7 @@ export class User implements UserModel {
 
   @BeforeInsert()
   @BeforeUpdate()
-  emailAndUsernameToLowerCase() {
+  emailAndUsernameToLowerCase(): void {
     this.email = this.email.toLowerCase();
     this.username = this.username.toLowerCase();
   }

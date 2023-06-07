@@ -34,7 +34,7 @@ export class UserService {
   findOneByUserName(
     username: string,
     relations: FindOptionsRelations<User> | undefined = undefined
-  ) {
+  ): Promise<User | null> {
     return this.userRepository.findOne({ where: { username }, relations });
   }
 

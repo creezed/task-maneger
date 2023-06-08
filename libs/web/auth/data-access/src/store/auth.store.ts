@@ -6,7 +6,7 @@ import { Observable, tap } from 'rxjs'
 import { AuthApiService } from '../services/auth-api.service'
 import { AuthResponse, UserModel } from '@practica/common'
 
-interface AuthStateModel {
+export interface AuthStateModel {
     user: Omit<UserModel, 'password'> | null
     token: string | null
 }
@@ -23,6 +23,10 @@ export const AUTH_STATE_TOKEN = new StateToken<AuthStateModel>('auth')
 @Injectable()
 export class AuthState {
     constructor(private readonly authApiService: AuthApiService) {}
+    @Selector([AUTH_STATE_TOKEN])
+    static getState(state: AuthStateModel): AuthStateModel {
+        return state
+    }
     @Selector([AUTH_STATE_TOKEN])
     static getToken(state: AuthStateModel): string | null {
         return state.token

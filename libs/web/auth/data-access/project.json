@@ -2,25 +2,10 @@
     "name": "web-auth-data-access",
     "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
     "sourceRoot": "libs/web/auth/data-access/src",
+    "prefix": "practica",
+    "tags": [],
     "projectType": "library",
     "targets": {
-        "build": {
-            "executor": "@nx/js:tsc",
-            "outputs": ["{options.outputPath}"],
-            "options": {
-                "outputPath": "dist/libs/web/auth/data-access",
-                "main": "libs/web/auth/data-access/src/index.ts",
-                "tsConfig": "libs/web/auth/data-access/tsconfig.lib.json",
-                "assets": ["libs/web/auth/data-access/*.md"]
-            }
-        },
-        "lint": {
-            "executor": "@nx/linter:eslint",
-            "outputs": ["{options.outputFile}"],
-            "options": {
-                "lintFilePatterns": ["libs/web/auth/data-access/**/*.ts"]
-            }
-        },
         "test": {
             "executor": "@nx/jest:jest",
             "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
@@ -34,7 +19,13 @@
                     "codeCoverage": true
                 }
             }
+        },
+        "lint": {
+            "executor": "@nx/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["libs/web/auth/data-access/**/*.ts", "libs/web/auth/data-access/**/*.html"]
+            }
         }
-    },
-    "tags": []
+    }
 }

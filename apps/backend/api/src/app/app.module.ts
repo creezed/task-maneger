@@ -5,6 +5,7 @@ import { getTypeOrmConfig } from './config/typeorm/getTypeOrmConfig'
 import { UserModule } from '../user/user.module'
 import { AuthModule } from '../auth/auth.module'
 import { TokenModule } from '../token/token.module'
+import { RoomModule } from '../room/room.module'
 
 @Module({
     imports: [
@@ -15,6 +16,7 @@ import { TokenModule } from '../token/token.module'
         UserModule,
         AuthModule,
         TokenModule,
+        RoomModule,
     ],
     providers: [],
 })

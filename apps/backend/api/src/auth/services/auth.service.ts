@@ -2,11 +2,10 @@ import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/
 import { LoginUserDto } from '../dto/login-user.dto'
 import { User } from '../../user/entities/user.entity'
 import { UserService } from '../../user/services/user.service'
-import { compareHashAsync } from '../utils/compareHash'
-import { hashPasswordAsync } from '../utils/hashPassword'
 import { RegistrationUserDto } from '../dto/registration-user.dto'
 import { TokenService } from '../../token/services/token.service'
 import { AuthResponse } from '@practica/common'
+import { compareHashAsync, hashPasswordAsync } from '@practica/api/shared'
 
 @Injectable()
 export class AuthService {
